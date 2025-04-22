@@ -20,21 +20,21 @@ export function getA5Resolution(cell: bigint): number {
 
 /**
  * Converts a geographic coordinate to an A5 cell at a specified resolution.
- * @param {LonLat} coord - The geographic coordinate in [longitude, latitude] format.
+ * @param {[number, number]} coord - The geographic coordinate in [longitude, latitude] format.
  * @param {number} resolution - The desired A5 resolution.
  * @returns {bigint} The A5 cell corresponding to the input coordinate.
  */
-export function coordToA5(coord: LonLat, resolution: number): bigint {
-  return lonLatToCell(coord, resolution);
+export function coordToA5(coord: [number, number], resolution: number): bigint {
+  return lonLatToCell(coord as LonLat, resolution);
 }
 
 /**
  * Converts an A5 cell to a geographic coordinate.
  * @param {bigint} cell - The A5 cell to convert.
- * @returns {LonLat} The geographic coordinate in [longitude, latitude] format.
+ * @returns {[number, number]} The geographic coordinate in [longitude, latitude] format.
  */
-export function a5ToCoord(cell: bigint): LonLat {
-  return cellToLonLat(cell);
+export function a5ToCoord(cell: bigint): [number, number] {
+  return cellToLonLat(cell) as [number, number];
 }
 
 /**

@@ -16,7 +16,7 @@ Converts a geographic coordinate to an A5 cell at a specified resolution.
 
 ### coord
 
-`LonLat`
+\[`number`, `number`\]
 
 The geographic coordinate in [longitude, latitude] format.
 
