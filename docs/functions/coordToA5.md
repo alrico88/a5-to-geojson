@@ -8,7 +8,7 @@
 
 > **coordToA5**(`coord`, `resolution`): `bigint`
 
-Defined in: index.ts:27
+Defined in: [index.ts:27](https://github.com/alrico88/a5-to-geojson/blob/master/src/index.ts#L27)
 
 Converts a geographic coordinate to an A5 cell at a specified resolution.
 

@@ -2,13 +2,13 @@
 
 ***
 
-[a5-to-geojson](../README.md) / A5ToPointFeature
+[a5-to-geojson](../README.md) / a5ToPointFeature
 
-# Function: A5ToPointFeature()
+# Function: a5ToPointFeature()
 
-> **A5ToPointFeature**(`cell`, `properties?`): `Feature`\<`Point`\>
+> **a5ToPointFeature**(`cell`, `properties?`): `Feature`\<`Point`\>
 
-Defined in: index.ts:46
+Defined in: [index.ts:46](https://github.com/alrico88/a5-to-geojson/blob/master/src/index.ts#L46)
 
 Converts an A5 cell to a GeoJSON Point feature.
 

@@ -8,7 +8,7 @@
 
 > **a5ToCoord**(`cell`): `LonLat`
 
-Defined in: index.ts:36
+Defined in: [index.ts:36](https://github.com/alrico88/a5-to-geojson/blob/master/src/index.ts#L36)
 
 Converts an A5 cell to a geographic coordinate.
 

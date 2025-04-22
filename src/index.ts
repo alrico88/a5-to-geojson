@@ -43,7 +43,7 @@ export function a5ToCoord(cell: bigint): LonLat {
  * @param {GeoJsonProperties} [properties={}] - Optional properties to include in the feature.
  * @returns {Feature<Point>} A GeoJSON Point feature representing the A5 cell.
  */
-export function A5ToPointFeature(
+export function a5ToPointFeature(
   cell: bigint,
   properties: GeoJsonProperties = {},
 ): Feature<Point> {
@@ -55,8 +55,8 @@ export function A5ToPointFeature(
  * @param {bigint} cell - The A5 cell to convert.
  * @returns {Point} A GeoJSON Point geometry representing the A5 cell.
  */
-export function A5ToPointGeometry(cell: bigint): Point {
-  return A5ToPointFeature(cell).geometry;
+export function a5ToPointGeometry(cell: bigint): Point {
+  return a5ToPointFeature(cell).geometry;
 }
 
 /**
@@ -65,7 +65,7 @@ export function A5ToPointGeometry(cell: bigint): Point {
  * @param {GeoJsonProperties} [properties={}] - Optional properties to include in the feature.
  * @returns {Feature<Polygon>} A GeoJSON Polygon feature representing the A5 cell boundary.
  */
-export function A5ToPolygonFeature(
+export function a5ToPolygonFeature(
   cell: bigint,
   properties: GeoJsonProperties = {},
 ): Feature<Polygon> {
@@ -77,8 +77,8 @@ export function A5ToPolygonFeature(
  * @param {bigint} cell - The A5 cell to convert.
  * @returns {Polygon} A GeoJSON Polygon geometry representing the A5 cell boundary.
  */
-export function A5ToPolygonGeometry(cell: bigint): Polygon {
-  return A5ToPolygonFeature(cell).geometry;
+export function a5ToPolygonGeometry(cell: bigint): Polygon {
+  return a5ToPolygonFeature(cell).geometry;
 }
 
 /**
@@ -87,5 +87,5 @@ export function A5ToPolygonGeometry(cell: bigint): Polygon {
  * @returns {BBox} The bounding box of the A5 cell in [minX, minY, maxX, maxY] format.
  */
 export function getA5BBox(cell: bigint): BBox {
-  return getGeoJSONBBox(A5ToPolygonFeature(cell));
+  return getGeoJSONBBox(a5ToPolygonFeature(cell));
 }
