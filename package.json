@@ -1,0 +1,57 @@
+{
+  "name": "a5-to-geojson",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alberto Rico",
+    "url": "https://alrico.es"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alrico88/a5-to-geojson"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rslib build",
+    "check": "biome check --write",
+    "dev": "rslib build --watch",
+    "format": "biome format --write",
+    "test": "vitest run",
+    "docs": "typedoc src/index.ts --readme none --gitRevision master --plugin typedoc-plugin-markdown",
+    "prepublish": "pnpm run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@rslib/core": "^0.6.5",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^22.8.1",
+    "typedoc": "^0.28.3",
+    "typedoc-plugin-markdown": "^4.6.2",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "core-js",
+      "esbuild"
+    ]
+  },
+  "dependencies": {
+    "@turf/helpers": "^7.2.0",
+    "a5-js": "^0.0.3",
+    "bbox-helper-functions": "^3.3.0"
+  }
+}
