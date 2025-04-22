@@ -69,7 +69,10 @@ export function a5ToPolygonFeature(
   cell: bigint,
   properties: GeoJsonProperties = {},
 ): Feature<Polygon> {
-  return polygon([cellToBoundary(cell)], properties);
+  const ring = cellToBoundary(cell);
+  // Close the ring
+  ring.push(ring[0]);
+  return polygon([ring], properties);
 }
 
 /**
