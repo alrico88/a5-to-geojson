@@ -7,7 +7,6 @@ import {
   getResolution,
   lonLatToCell,
 } from 'a5-js';
-import type { LonLat } from 'a5-js/dist/core/math';
 
 /**
  * Gets the A5 resolution of a given cell.
@@ -25,7 +24,8 @@ export function getA5Resolution(cell: bigint): number {
  * @returns {bigint} The A5 cell corresponding to the input coordinate.
  */
 export function coordToA5(coord: [number, number], resolution: number): bigint {
-  return lonLatToCell(coord as LonLat, resolution);
+  // @ts-expect-error . LonLat type not exported by lib
+  return lonLatToCell(coord, resolution);
 }
 
 /**
