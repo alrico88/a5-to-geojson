@@ -20,9 +20,7 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "rslib build",
     "check": "biome check --write",
@@ -43,15 +41,11 @@
     "vitest": "^3.1.1"
   },
   "pnpm": {
-    "onlyBuiltDependencies": [
-      "@biomejs/biome",
-      "core-js",
-      "esbuild"
-    ]
+    "onlyBuiltDependencies": ["@biomejs/biome", "core-js", "esbuild"]
   },
   "dependencies": {
     "@turf/helpers": "^7.2.0",
-    "a5-js": "^0.0.3",
+    "a5-js": "^0.2.0",
     "bbox-helper-functions": "^3.3.0"
   }
 }
