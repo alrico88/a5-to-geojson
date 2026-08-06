@@ -8,7 +8,7 @@
 
 > **hexToA5Cell**(`hex`): `bigint`
 
-Defined in: hex.ts:25
+Defined in: [hex.ts:25](https://github.com/alrico88/a5-to-geojson/blob/master/src/hex.ts#L25)
 
 Converts a hex A5 cell identifier to its bigint representation.
 

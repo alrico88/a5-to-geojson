@@ -8,7 +8,7 @@
 
 > **a5ToPolygonGeometry**(`cell`): `Polygon`
 
-Defined in: [index.ts:80](https://github.com/alrico88/a5-to-geojson/blob/master/src/index.ts#L80)
+Defined in: [index.ts:124](https://github.com/alrico88/a5-to-geojson/blob/master/src/index.ts#L124)
 
 Converts an A5 cell to a GeoJSON Polygon geometry.
 

@@ -8,7 +8,7 @@
 
 > **a5ToPolygonFeature**(`cell`, `properties?`): `Feature`\<`Polygon`\>
 
-Defined in: hex.ts:97
+Defined in: [hex.ts:97](https://github.com/alrico88/a5-to-geojson/blob/master/src/hex.ts#L97)
 
 Converts an A5 cell to a GeoJSON Polygon feature.
 

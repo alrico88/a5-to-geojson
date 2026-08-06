@@ -8,7 +8,7 @@
 
 > **a5ToCoord**(`cell`): \[`number`, `number`\]
 
-Defined in: hex.ts:65
+Defined in: [hex.ts:65](https://github.com/alrico88/a5-to-geojson/blob/master/src/hex.ts#L65)
 
 Converts an A5 cell to a geographic coordinate.
 

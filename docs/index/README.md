@@ -16,3 +16,5 @@
 - [coordToA5](functions/coordToA5.md)
 - [getA5BBox](functions/getA5BBox.md)
 - [getA5Resolution](functions/getA5Resolution.md)
+- [lineStringToA5](functions/lineStringToA5.md)
+- [polygonToA5](functions/polygonToA5.md)

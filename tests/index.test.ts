@@ -1,4 +1,4 @@
-import type { Feature, Polygon } from 'geojson';
+import type { Feature, LineString, Polygon } from 'geojson';
 import { describe, expect, test } from 'vitest';
 import * as lib from '../src';
 import * as hex from '../src/hex';
@@ -22,6 +22,55 @@ describe('A5 cell polygon ring closure', () => {
     const coords = geometry.coordinates[0];
 
     expect(coords[0]).toEqual(coords[coords.length - 1]); // El anillo debe estar cerrado
+  });
+});
+
+describe('GeoJSON to A5 cells', () => {
+  const resolution = 8;
+  const polygon: Feature<Polygon> = {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+      type: 'Polygon',
+      coordinates: [
+        [
+          [-4, 39],
+          [-4, 41],
+          [-3, 41],
+          [-3, 39],
+          [-4, 39],
+        ],
+      ],
+    },
+  };
+  const line: Feature<LineString> = {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+      type: 'LineString',
+      coordinates: [
+        [-3.7, 40.4],
+        [-3.68, 40.42],
+      ],
+    },
+  };
+
+  test('polygonToA5 returns a FeatureCollection of cell polygons inside the polygon', () => {
+    const collection = lib.polygonToA5(polygon, resolution);
+    expect(collection.type).toBe('FeatureCollection');
+    expect(collection.features.length).toBeGreaterThan(0);
+    for (const feature of collection.features) {
+      expect(feature.geometry.type).toBe('Polygon');
+    }
+  });
+
+  test('lineStringToA5 returns a FeatureCollection of cell polygons along the line', () => {
+    const collection = lib.lineStringToA5(line, resolution);
+    expect(collection.type).toBe('FeatureCollection');
+    expect(collection.features.length).toBeGreaterThan(0);
+    for (const feature of collection.features) {
+      expect(feature.geometry.type).toBe('Polygon');
+    }
   });
 });
 

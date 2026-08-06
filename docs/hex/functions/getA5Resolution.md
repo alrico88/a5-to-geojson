@@ -8,7 +8,7 @@
 
 > **getA5Resolution**(`cell`): `number`
 
-Defined in: hex.ts:43
+Defined in: [hex.ts:43](https://github.com/alrico88/a5-to-geojson/blob/master/src/hex.ts#L43)
 
 Gets the A5 resolution of a given cell.
 

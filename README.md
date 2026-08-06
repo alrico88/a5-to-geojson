@@ -6,6 +6,7 @@ A lightweight utility library for converting A5 cells to GeoJSON features and ge
 
 - Convert A5 cells to GeoJSON Point and Polygon features or geometries.
 - Convert coordinates to A5 cells and vice versa.
+- Convert GeoJSON Polygon and LineString features to a FeatureCollection of A5 cell polygons.
 - Calculate the bounding box (BBox) of an A5 cell.
 - Get the resolution of an A5 cell.
 

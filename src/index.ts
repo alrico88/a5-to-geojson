@@ -1,12 +1,56 @@
-import { point, polygon } from '@turf/helpers';
+import { featureCollection, point, polygon } from '@turf/helpers';
 import {
   cellToBoundary,
   cellToLonLat,
   getResolution,
+  lineStringToCells,
   lonLatToCell,
+  polygonToCells,
+  uncompact,
 } from 'a5-js';
 import { type BBox, getGeoJSONBBox } from 'bbox-helper-functions';
-import type { Feature, GeoJsonProperties, Point, Polygon } from 'geojson';
+import type {
+  Feature,
+  FeatureCollection,
+  GeoJsonProperties,
+  Geometry,
+  LineString,
+  Point,
+  Polygon,
+  Position,
+} from 'geojson';
+
+type A5Degrees = number & { __brand: 'Degrees' };
+type A5LonLat = [longitude: A5Degrees, latitude: A5Degrees] & {
+  __brand: 'LonLat';
+};
+
+function toA5LonLat([longitude, latitude]: Position): A5LonLat {
+  return [longitude as A5Degrees, latitude as A5Degrees] as A5LonLat;
+}
+
+function toA5LineString(coordinates: LineString['coordinates']): A5LonLat[] {
+  return coordinates.map(toA5LonLat);
+}
+
+function toA5Polygon(coordinates: Polygon['coordinates']): A5LonLat[][] {
+  return coordinates.map((ring) => ring.map(toA5LonLat));
+}
+
+function toGeometry<G extends Geometry>(featureOrGeometry: Feature<G> | G): G {
+  return featureOrGeometry.type === 'Feature'
+    ? featureOrGeometry.geometry
+    : featureOrGeometry;
+}
+
+function toPolygonFeatureCollection(
+  cells: Iterable<bigint>,
+  properties: GeoJsonProperties = {},
+): FeatureCollection<Polygon> {
+  return featureCollection(
+    [...cells].map((cell) => a5ToPolygonFeature(cell, properties)),
+  );
+}
 
 /**
  * Gets the A5 resolution of a given cell.
@@ -24,7 +68,7 @@ export function getA5Resolution(cell: bigint): number {
  * @returns The A5 cell corresponding to the input coordinate.
  */
 export function coordToA5(coord: [number, number], resolution: number): bigint {
-  return lonLatToCell(coord as Parameters<typeof lonLatToCell>[0], resolution);
+  return lonLatToCell(toA5LonLat(coord), resolution);
 }
 
 /**
@@ -33,7 +77,8 @@ export function coordToA5(coord: [number, number], resolution: number): bigint {
  * @returns The geographic coordinate in [longitude, latitude] format.
  */
 export function a5ToCoord(cell: bigint): [number, number] {
-  return cellToLonLat(cell) as [number, number];
+  const [longitude, latitude] = cellToLonLat(cell);
+  return [longitude, latitude];
 }
 
 /**
@@ -87,4 +132,47 @@ export function a5ToPolygonGeometry(cell: bigint): Polygon {
  */
 export function getA5BBox(cell: bigint): BBox {
   return getGeoJSONBBox(a5ToPolygonFeature(cell));
+}
+
+/**
+ * Converts a GeoJSON Polygon to a FeatureCollection of the A5 cells
+ * whose centers fall inside it, rendered as polygons.
+ * @param polygon - The GeoJSON Polygon feature or geometry to convert.
+ * @param resolution - The desired A5 resolution.
+ * @param properties - Optional properties to include in each feature.
+ * @returns A GeoJSON FeatureCollection of Polygon features.
+ */
+export function polygonToA5(
+  polygon: Feature<Polygon> | Polygon,
+  resolution: number,
+  properties: GeoJsonProperties = {},
+): FeatureCollection<Polygon> {
+  const geometry = toGeometry(polygon);
+  return toPolygonFeatureCollection(
+    uncompact(
+      polygonToCells(toA5Polygon(geometry.coordinates), resolution),
+      resolution,
+    ),
+    properties,
+  );
+}
+
+/**
+ * Converts a GeoJSON LineString to a FeatureCollection of the A5 cells
+ * it passes through, rendered as polygons.
+ * @param line - The GeoJSON LineString feature or geometry to convert.
+ * @param resolution - The desired A5 resolution.
+ * @param properties - Optional properties to include in each feature.
+ * @returns A GeoJSON FeatureCollection of Polygon features.
+ */
+export function lineStringToA5(
+  line: Feature<LineString> | LineString,
+  resolution: number,
+  properties: GeoJsonProperties = {},
+): FeatureCollection<Polygon> {
+  const geometry = toGeometry(line);
+  return toPolygonFeatureCollection(
+    lineStringToCells(toA5LineString(geometry.coordinates), resolution),
+    properties,
+  );
 }

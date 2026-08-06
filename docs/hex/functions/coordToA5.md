@@ -8,7 +8,7 @@
 
 > **coordToA5**(`coord`, `resolution`): `string`
 
-Defined in: hex.ts:53
+Defined in: [hex.ts:53](https://github.com/alrico88/a5-to-geojson/blob/master/src/hex.ts#L53)
 
 Converts a geographic coordinate to an A5 cell at a specified resolution.
 

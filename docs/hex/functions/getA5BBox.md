@@ -8,7 +8,7 @@
 
 > **getA5BBox**(`cell`): `BBox`
 
-Defined in: hex.ts:118
+Defined in: [hex.ts:118](https://github.com/alrico88/a5-to-geojson/blob/master/src/hex.ts#L118)
 
 Calculates the bounding box (BBox) of an A5 cell.
 

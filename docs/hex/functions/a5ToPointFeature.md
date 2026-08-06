@@ -8,7 +8,7 @@
 
 > **a5ToPointFeature**(`cell`, `properties?`): `Feature`\<`Point`\>
 
-Defined in: hex.ts:75
+Defined in: [hex.ts:75](https://github.com/alrico88/a5-to-geojson/blob/master/src/hex.ts#L75)
 
 Converts an A5 cell to a GeoJSON Point feature.
 
