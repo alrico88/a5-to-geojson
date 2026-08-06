@@ -1,8 +1,8 @@
-[**a5-to-geojson**](../README.md)
+[**a5-to-geojson**](../../README.md)
 
 ***
 
-[a5-to-geojson](../README.md) / coordToA5
+[a5-to-geojson](../../README.md) / [index](../README.md) / coordToA5
 
 # Function: coordToA5()
 

@@ -54,6 +54,25 @@ const polygonFeature = a5ToPolygonFeature(a5Cell);
 console.log('GeoJSON Polygon Feature:', polygonFeature);
 ```
 
+### Hex support
+
+Cell identifiers can also be used in hexadecimal form via the `a5-to-geojson/hex` entry point, which exposes the same functions with hex cells as input and output:
+
+```javascript
+import { coordToA5, a5ToPolygonFeature } from 'a5-to-geojson/hex';
+
+const hexCell = coordToA5([-3.6886, 40.4201], 9);
+console.log('A5 Cell (hex):', hexCell);
+
+const polygon = a5ToPolygonFeature(hexCell);
+console.log('GeoJSON Polygon Feature:', polygon);
+
+// Convert between representations
+import { a5CellToHex, hexToA5Cell } from 'a5-to-geojson/hex';
+const bigintCell = hexToA5Cell(hexCell);
+const backToHex = a5CellToHex(bigintCell);
+```
+
 ## Documentation
 
 See [DOCS](./docs/README.md)

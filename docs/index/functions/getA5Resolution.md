@@ -1,8 +1,8 @@
-[**a5-to-geojson**](../README.md)
+[**a5-to-geojson**](../../README.md)
 
 ***
 
-[a5-to-geojson](../README.md) / getA5Resolution
+[a5-to-geojson](../../README.md) / [index](../README.md) / getA5Resolution
 
 # Function: getA5Resolution()
 

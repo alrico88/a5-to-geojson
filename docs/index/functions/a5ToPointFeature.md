@@ -1,8 +1,8 @@
-[**a5-to-geojson**](../README.md)
+[**a5-to-geojson**](../../README.md)
 
 ***
 
-[a5-to-geojson](../README.md) / a5ToPointFeature
+[a5-to-geojson](../../README.md) / [index](../README.md) / a5ToPointFeature
 
 # Function: a5ToPointFeature()
 

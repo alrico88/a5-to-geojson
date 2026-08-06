@@ -15,6 +15,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./hex": {
+      "types": "./dist/hex.d.ts",
+      "import": "./dist/hex.js",
+      "require": "./dist/hex.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -29,7 +34,7 @@
     "dev": "rslib build --watch",
     "format": "biome format --write",
     "test": "vitest run",
-    "docs": "typedoc src/index.ts --readme none --gitRevision master --plugin typedoc-plugin-markdown",
+    "docs": "typedoc src/index.ts src/hex.ts --readme none --gitRevision master --plugin typedoc-plugin-markdown",
     "prepublish": "pnpm run build"
   },
   "devDependencies": {

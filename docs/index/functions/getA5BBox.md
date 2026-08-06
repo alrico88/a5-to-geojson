@@ -1,8 +1,8 @@
-[**a5-to-geojson**](../README.md)
+[**a5-to-geojson**](../../README.md)
 
 ***
 
-[a5-to-geojson](../README.md) / getA5BBox
+[a5-to-geojson](../../README.md) / [index](../README.md) / getA5BBox
 
 # Function: getA5BBox()
 
