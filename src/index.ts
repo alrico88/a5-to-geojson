@@ -1,12 +1,12 @@
 import { point, polygon } from '@turf/helpers';
-import { getGeoJSONBBox, type BBox } from 'bbox-helper-functions';
-import type { Feature, GeoJsonProperties, Point, Polygon } from 'geojson';
 import {
   cellToBoundary,
   cellToLonLat,
   getResolution,
   lonLatToCell,
 } from 'a5-js';
+import { type BBox, getGeoJSONBBox } from 'bbox-helper-functions';
+import type { Feature, GeoJsonProperties, Point, Polygon } from 'geojson';
 
 /**
  * Gets the A5 resolution of a given cell.

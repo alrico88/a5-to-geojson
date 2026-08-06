@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["ES2021"],
+    "rootDir": "src",
     "module": "ESNext",
     "noEmit": true,
     "strict": true,

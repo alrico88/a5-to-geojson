@@ -1,7 +1,7 @@
+import { lonLatToCell } from 'a5-js';
+import type { Feature, Polygon } from 'geojson';
 import { describe, expect, test } from 'vitest';
 import * as lib from '../src';
-import type { Feature, Polygon } from 'geojson';
-import { lonLatToCell } from 'a5-js';
 
 test('Library is exported', () => {
   expect(lib).toBeDefined();
