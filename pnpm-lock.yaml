@@ -12,8 +12,8 @@ importers:
         specifier: ^7.4.0
         version: 7.4.0
       a5-js:
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.10.1
+        version: 0.10.1
       bbox-helper-functions:
         specifier: ^4.0.1
         version: 4.0.1
@@ -676,8 +676,8 @@ packages:
   '@vitest/utils@4.1.10':
     resolution: {integrity: sha512-fy9am/HWxbaGt/Sawrp90vt6Y6jQwf1RX77cz3uwoJwJVMli/e1IEwRPnMNJ7vKfPTwo0diXifkpPvwH9v7nGA==}
 
-  a5-js@0.9.0:
-    resolution: {integrity: sha512-nHL2db4wxkxPM2RZjyL4bzQRxRbY0pyTsPVphR6KUKe4Yzfo5WHS31vvzZ+Upel+tO7cdoF5LzFHbKF5JZZRFg==}
+  a5-js@0.10.1:
+    resolution: {integrity: sha512-UeTPtqZzXpDBLX0sm9GaUXArwHntBGQ9M1Bh7rB/wjibQEOmvaq5amgJKc4xf0A9GO9JgFhHRvlvdCeiav2+/g==}
 
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
@@ -745,9 +745,6 @@ packages:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
-
-  gl-matrix@3.4.4:
-    resolution: {integrity: sha512-latSnyDNt/8zYUB6VIJ6PCh2jBjJX6gnDsoCZ7LyW7GkqrD51EWwa9qCoGixj8YqBtETQK/xY7OmpTF8xz1DdQ==}
 
   jiti@2.4.2:
     resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
@@ -1440,9 +1437,7 @@ snapshots:
       convert-source-map: 2.0.0
       tinyrainbow: 3.1.1
 
-  a5-js@0.9.0:
-    dependencies:
-      gl-matrix: 3.4.4
+  a5-js@0.10.1: {}
 
   argparse@2.0.1: {}
 
@@ -1521,8 +1516,6 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
-
-  gl-matrix@3.4.4: {}
 
   jiti@2.4.2:
     optional: true

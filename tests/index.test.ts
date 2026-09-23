@@ -64,6 +64,17 @@ describe('GeoJSON to A5 cells', () => {
     }
   });
 
+  test('polygonToA5 can include cells overlapping the polygon boundary', () => {
+    const centerCells = lib.polygonToA5(polygon, resolution);
+    const overlappingCells = lib.polygonToA5(polygon, resolution, {}, {
+      containment: 'overlapping',
+    });
+
+    expect(overlappingCells.features.length).toBeGreaterThanOrEqual(
+      centerCells.features.length,
+    );
+  });
+
   test('lineStringToA5 returns a FeatureCollection of cell polygons along the line', () => {
     const collection = lib.lineStringToA5(line, resolution);
     expect(collection.type).toBe('FeatureCollection');

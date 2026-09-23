@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@turf/helpers": "^7.4.0",
-    "a5-js": "^0.9.0",
+    "a5-js": "^0.10.1",
     "bbox-helper-functions": "^4.0.1"
   }
 }

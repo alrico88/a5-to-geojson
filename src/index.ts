@@ -140,17 +140,19 @@ export function getA5BBox(cell: bigint): BBox {
  * @param polygon - The GeoJSON Polygon feature or geometry to convert.
  * @param resolution - The desired A5 resolution.
  * @param properties - Optional properties to include in each feature.
+ * @param options - Controls whether cells must contain the polygon or overlap it.
  * @returns A GeoJSON FeatureCollection of Polygon features.
  */
 export function polygonToA5(
   polygon: Feature<Polygon> | Polygon,
   resolution: number,
   properties: GeoJsonProperties = {},
+  options: { containment?: 'center' | 'overlapping' } = {},
 ): FeatureCollection<Polygon> {
   const geometry = toGeometry(polygon);
   return toPolygonFeatureCollection(
     uncompact(
-      polygonToCells(toA5Polygon(geometry.coordinates), resolution),
+      polygonToCells(toA5Polygon(geometry.coordinates), resolution, options),
       resolution,
     ),
     properties,
