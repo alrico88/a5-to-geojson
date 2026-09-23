@@ -135,8 +135,9 @@ export function getA5BBox(cell: bigint): BBox {
 }
 
 /**
- * Converts a GeoJSON Polygon to a FeatureCollection of the A5 cells
- * whose centers fall inside it, rendered as polygons.
+ * Converts a GeoJSON Polygon to a FeatureCollection of A5 cells rendered as polygons.
+ * By default, includes cells whose centers fall inside it; `overlapping` also
+ * includes cells that overlap the polygon boundary.
  * @param polygon - The GeoJSON Polygon feature or geometry to convert.
  * @param resolution - The desired A5 resolution.
  * @param properties - Optional properties to include in each feature.
